@@ -80,6 +80,7 @@ class Command(BaseCommand):
             server.stop()
             ioloop = tornado.ioloop.IOLoop.current()
             ioloop.add_callback(ioloop.stop)
+            loop_thread.join()
         self.stdout.write((
             "%(started_at)s\n"
             "Django version %(version)s, using settings %(settings)r\n"
